@@ -62,24 +62,24 @@ class produksicontroller extends Controller
             $nestedData['tanggal_selesai'] = $row->tgl_selesai_produksi;
             $nestedData['status'] = $row->status;
             $nestedData['publish'] = $row->publish;
-             $nestedData['menu'] = '
-             <div class ="btn-group ,m-btn-group" role="group" arial-label="...">
-                <a href ="' .route('produksiEdit',['id' =>$row->id]).'" class="btn btn-success">
-                    Edit
-                </a>
-                <button type="button" class="btn btn-danger btn-hapus" data-route="' .route('produksiDelete', ['id' => $row->id]) .'">
-                    Hapus
-                </button>
-            </div>
-             ';
+            //  $nestedData['menu'] = '
+            //  <div class ="btn-group ,m-btn-group" role="group" arial-label="...">
+            //     <a href ="' .route('produksiEdit',['id' =>$row->id]).'" class="btn btn-success">
+            //         Edit
+            //     </a>
+            //     <button type="button" class="btn btn-danger btn-hapus" data-route="' .route('produksiDelete', ['id' => $row->id]) .'">
+            //         Hapus
+            //     </button>
+            // </div>
+            //  ';
 
             $data[] = $nestedData;
         }
 
         $json_data = array(
             "draw" =>intval($request->input(key: 'draw')),
-            "recordsTotal" => intval($total_data -1),
-            "recordsFiltered" => intval($total_data -1),
+            "recordsTotal" => intval($total_data - 1),
+            "recordsFiltered" => intval($total_data - 1),
             "data" =>$data,
             "all_request" => $request->all()
         );
@@ -174,3 +174,4 @@ class produksicontroller extends Controller
 //         mProduksi::where('id', $id)->delete();
 //     }
 // }
+}
